@@ -28,7 +28,7 @@ def chatbot(question):
 
     return result
 
-st.image('Data/smile.webp')
+st.image('./data/chatbot1/smile.webp')
 
 # 로딩바 구현하기
 with st.spinner(text="페이지 로딩중입니다. 잠시만 기다려 주세요..."):
@@ -36,7 +36,7 @@ with st.spinner(text="페이지 로딩중입니다. 잠시만 기다려 주세�
 
 
 # # 문장 임베딩 생성용 데이터 불러오기
-file_path = 'Data/ChatBotData.csv'
+file_path = './data/chatbot1/ChatBotData.csv'
 df_chat = pd.read_csv(file_path)
 
 # 사전학습된 한국어 SentenceBERT 모델 생성
@@ -52,7 +52,7 @@ model = SentenceTransformer('ddobokki/klue-roberta-base-nli-sts')
 # df['embeddings'] = embeddings
 
 # 미리 생성해둔 임베딩 벡터 불러오기
-file_path = 'Data/chatbot_embeddings.npy'
+file_path = './data/chatbot1/chatbot_embeddings.npy'
 embeddings = np.load(file_path, allow_pickle=True)
 df_chat['embeddings'] = embeddings
 
